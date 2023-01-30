@@ -42,14 +42,14 @@ struct SearchUserView: View {
                 }
             })
             
-            .toolbar{
-                ToolbarItem(placement: .navigationBarTrailing){
-                    Button("Cancel"){
-                        dismiss()
-                    }
-                    .tint(.black)
-                }
-            }
+//            .toolbar{
+//                ToolbarItem(placement: .navigationBarTrailing){
+//                    Button("Cancel"){
+//                        dismiss()
+//                    }
+//                    .tint(.black)
+//                }
+//            }
         }
     }
     func searchUsers()async{

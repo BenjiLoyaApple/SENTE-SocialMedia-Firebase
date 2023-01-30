@@ -39,9 +39,19 @@ struct CommentView: View {
                 }
             })
             .safeAreaInset(edge: .bottom) {
-                HStack{
-                    TextField("Add a comment...", text: $commentText)
-                        .textFieldStyle(.roundedBorder)
+                HStack(spacing: 5){
+                    
+//                    TextField("Add a comment...", text: $commentText)
+//                        .textFieldStyle(.roundedBorder)
+                    
+                    ZStack {
+                        DescriptionPlaceholder()
+                        TextEditor(text: $commentText)
+                            .opacity(commentText.isEmpty ? 0.5 : 1)
+                            .offset(x: 10)
+                           
+                    }
+                    .frame(height: 40)
                     
                     Button(action: addComment) {
                         Image(systemName: "arrow.up.circle.fill")
@@ -54,7 +64,7 @@ struct CommentView: View {
                 .padding(15)
                 .background {
                     Rectangle()
-                        .fill(.ultraThinMaterial)
+                        .fill(.clear)
                         .ignoresSafeArea()
                     
                 }
@@ -69,6 +79,24 @@ struct CommentView: View {
             await fetchComments()
         }
     }
+    
+    private struct DescriptionPlaceholder: View {
+        var body: some View {
+            HStack {
+                Text("Add a comment...")
+                    .foregroundColor(Color(.gray))
+                    .font(.system(size: 17))
+                    .padding(.leading, 15)
+                    .padding(.top, -4)
+                
+                Spacer()
+            }
+            RoundedRectangle(cornerRadius: 20)
+                .stroke(Color.gray, lineWidth: 1)
+                
+        }
+    }
+    
     
     /// - Comment Row
     @ViewBuilder

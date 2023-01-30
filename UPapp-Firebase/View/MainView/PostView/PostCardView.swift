@@ -25,6 +25,8 @@ struct PostCardView: View {
     //    GESTURE IMAGE
     @State var currentAmount: CGFloat = 0
     
+    let timer = Timer.publish(every: 3.0, on: .main, in: .common).autoconnect()
+    
     var body: some View {
         
 //        MARK: Avatar & userName + Button Delete
@@ -76,11 +78,16 @@ struct PostCardView: View {
                             }
                             .tag(index)
                             .frame(height: 450)
-                            .onTapGesture {
+                            .onReceive(timer, perform: { _ in
+                                withAnimation(.easeIn) {
+                                    pageIndex = pageIndex == 1 ? 0 : pageIndex + 1
+                                }
+                            })
+//                            .onTapGesture {
 //                                looking image full screen
 //                                expandImages.toggle()
-                                pageIndex = index
-                            }
+//                                pageIndex = index
+//                            }
                         }
                     }
                     .tabViewStyle(.page)

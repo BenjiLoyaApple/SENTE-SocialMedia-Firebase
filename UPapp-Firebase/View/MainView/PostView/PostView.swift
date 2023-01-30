@@ -21,7 +21,7 @@ struct PostView: View {
                         Button {
 
                         } label: {
-                            Text("upapp")
+                            Text("sente")
                                 .font(.title)
 //                            Image("insta1")
 //                                .resizable()
