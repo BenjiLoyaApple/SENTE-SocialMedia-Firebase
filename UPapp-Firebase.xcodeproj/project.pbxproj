@@ -197,8 +197,8 @@
 		E40C0FD9296AA9D600C9C512 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				E40C0FDA296AA9D600C9C512 /* View+Extensions.swift */,
 				E40C0FDB296AA9D600C9C512 /* CustomImagePicker.swift */,
+				E40C0FDA296AA9D600C9C512 /* View+Extensions.swift */,
 				E40C0FDC296AA9D600C9C512 /* Extensions+UIImage.swift */,
 			);
 			path = Helpers;
